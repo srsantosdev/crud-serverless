@@ -31,3 +31,12 @@ export const showUser: Handler = async event => {
     body: JSON.stringify(user),
   };
 };
+
+export const updateUser: Handler = async event => {
+  const user = await usersController.update(event);
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(user),
+  };
+};

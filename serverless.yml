@@ -39,3 +39,10 @@ functions:
       - http:
           method: get
           path: users/{id}
+
+  updateUser:
+    handler: src/handler.updateUser
+    events:
+      - http:
+          method: put
+          path: users/{id}
