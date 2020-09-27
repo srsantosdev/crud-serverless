@@ -20,6 +20,9 @@
     "prettier"
   ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "class-methods-use-this": "off",
     "prettier/prettier": "error",
     "import/prefer-default-export": "off",
     "@typescript-eslint/no-unused-vars": ["error", {
