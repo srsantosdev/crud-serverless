@@ -9,9 +9,20 @@ export const createUser: Handler = async event => {
   const user = await usersController.create(event);
 
   return {
-    statusCode: 200,
+    statusCode: 201,
     body: JSON.stringify({
       user,
+    }),
+  };
+};
+
+export const listAllUsers: Handler = async () => {
+  const users = await usersController.index();
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify({
+      ...users,
     }),
   };
 };

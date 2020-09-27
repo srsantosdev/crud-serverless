@@ -1,5 +1,7 @@
 import { Document } from 'mongoose';
+
 import CreateUserService from '../services/CreateUserService';
+import ListAllUsersService from '../services/ListAllUsersService';
 
 export default class UsersController {
   public async create(event: any): Promise<Document> {
@@ -14,5 +16,13 @@ export default class UsersController {
     });
 
     return user;
+  }
+
+  public async index(): Promise<Document[]> {
+    const listAllUsersService = new ListAllUsersService();
+
+    const users = await listAllUsersService.execute();
+
+    return users;
   }
 }

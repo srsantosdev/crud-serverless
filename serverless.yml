@@ -25,3 +25,10 @@ functions:
       - http:
           method: post
           path: users
+
+  listAllUsers:
+    handler: src/handler.listAllUsers
+    events:
+      - http:
+          method: get
+          path: users
