@@ -32,3 +32,10 @@ functions:
       - http:
           method: get
           path: users
+
+  showUser:
+    handler: src/handler.showUser
+    events:
+      - http:
+          method: get
+          path: users/{id}

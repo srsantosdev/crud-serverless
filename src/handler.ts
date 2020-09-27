@@ -10,9 +10,7 @@ export const createUser: Handler = async event => {
 
   return {
     statusCode: 201,
-    body: JSON.stringify({
-      user,
-    }),
+    body: JSON.stringify(user),
   };
 };
 
@@ -21,8 +19,15 @@ export const listAllUsers: Handler = async () => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify({
-      ...users,
-    }),
+    body: JSON.stringify(users),
+  };
+};
+
+export const showUser: Handler = async event => {
+  const user = await usersController.show(event);
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(user),
   };
 };

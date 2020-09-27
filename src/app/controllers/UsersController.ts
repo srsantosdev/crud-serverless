@@ -2,6 +2,7 @@ import { Document } from 'mongoose';
 
 import CreateUserService from '../services/CreateUserService';
 import ListAllUsersService from '../services/ListAllUsersService';
+import ShowUserService from '../services/ShowUserService';
 
 export default class UsersController {
   public async create(event: any): Promise<Document> {
@@ -24,5 +25,15 @@ export default class UsersController {
     const users = await listAllUsersService.execute();
 
     return users;
+  }
+
+  public async show(event: any): Promise<Document | undefined> {
+    const showUserService = new ShowUserService();
+
+    const { id } = event.pathParameters;
+
+    const user = await showUserService.execute(id);
+
+    return user;
   }
 }
