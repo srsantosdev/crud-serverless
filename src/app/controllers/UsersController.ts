@@ -4,6 +4,7 @@ import CreateUserService from '../services/CreateUserService';
 import ListAllUsersService from '../services/ListAllUsersService';
 import ShowUserService from '../services/ShowUserService';
 import UpdateUserService from '../services/UpdateUserService';
+import RemoveUserService from '../services/RemoveUserService';
 
 export default class UsersController {
   public async create(event: any): Promise<Document> {
@@ -52,5 +53,13 @@ export default class UsersController {
     });
 
     return user;
+  }
+
+  public async delete(event: any): Promise<any> {
+    const removeUserService = new RemoveUserService();
+
+    const { id } = event.pathParameters;
+
+    await removeUserService.execute(id);
   }
 }

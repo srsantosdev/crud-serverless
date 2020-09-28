@@ -46,3 +46,10 @@ functions:
       - http:
           method: put
           path: users/{id}
+
+  deleteUser:
+    handler: src/handler.deleteUser
+    events:
+      - http:
+          method: delete
+          path: users/{id}

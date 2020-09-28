@@ -40,3 +40,11 @@ export const updateUser: Handler = async event => {
     body: JSON.stringify(user),
   };
 };
+
+export const deleteUser: Handler = async event => {
+  await usersController.delete(event);
+
+  return {
+    statusCode: 204,
+  };
+};
